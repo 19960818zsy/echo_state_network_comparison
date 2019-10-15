@@ -1,0 +1,24 @@
+function parameters = configure_parameter_struct()
+parameters.W = [];
+parameters.V = [];
+parameters.b = [];
+parameters.ic = [];
+parameters.networks = 20;
+parameters.neurons = 50;
+parameters.kappa = -1;
+parameters.alpha = 0.3;
+parameters.sparsity = 0.10;
+parameters.leak = 1;
+parameters.spectralRadius = 1;
+parameters.function = @tanh;
+parameters.toTest = "spectralRadius";
+parameters.range = 0:0.1:5;
+parameters.perfType = "memory";
+parameters.performanceMeasure = @(x,y)(corr(x,y));
+parameters.transientCutoff = 0.01;
+parameters.samplingTime = 0.1;
+parameters.lambda = -1;
+parameters.sampleLength = 1000;
+parameters.predictionWindow = 0;
+parameters.task = 1;
+end
