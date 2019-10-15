@@ -72,20 +72,20 @@ ylabel("Pearson correlation coefficient $r$", 'Interpreter', 'latex', 'FontSize'
 title("Random network configuration with tanh nonlinearity");
 legend({"Test performance", "Consistency"}, "Location", "southwest");
 hold off
-figure;
-plot(parameters.range, plot_obj.to_plot_lambdas, 'g');
-hold on
-xlabel(parameters.toTest, 'Interpreter', 'latex');
-ylabel("$\lambda$", 'Interpreter', 'latex');
-title(title_generator(parameters));
-hold off
-figure;
-plot(parameters.range, plot_obj.to_plot_memories, 'b');
-hold on
-xlabel(parameters.toTest, 'Interpreter', 'latex');
-ylabel("Memory capacity", 'Interpreter', 'latex');
-title(title_generator(parameters));
-hold off
+% figure;
+% plot(parameters.range, plot_obj.to_plot_lambdas, 'g');
+% hold on
+% xlabel(parameters.toTest, 'Interpreter', 'latex');
+% ylabel("$\lambda$", 'Interpreter', 'latex');
+% title(title_generator(parameters));
+% hold off
+% figure;
+% plot(parameters.range, plot_obj.to_plot_memories, 'b');
+% hold on
+% xlabel(parameters.toTest, 'Interpreter', 'latex');
+% ylabel("Memory capacity", 'Interpreter', 'latex');
+% title(title_generator(parameters));
+% hold off
 end
 
 function [] = plot_neuron_vals(parameters, plot_obj)
