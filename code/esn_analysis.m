@@ -5,7 +5,6 @@ all_lambdas = [];
 all_consistencies = [];
 all_memory_capacities = [];
 all_neuron_vals = [];
-% data_size = 3*parameters.sampleLength*parameters.networks;
 [u_input, training_target] = generate_test_data(parameters, taskName);
 data_splits_u = split_into_folds(u_input, parameters.networks);
 data_splits_z = split_into_folds(training_target, parameters.networks);
@@ -29,14 +28,12 @@ for j = 1:parameters.networks
         lambdas(index) = best_lambda;
         consistencies(index) = consistency;
         memory_capacities(index) = memory_capacity;
-        % neuron_vals = [neuron_vals neuron_val];
         index = index + 1;
     end
     vals = [vals;performances];
     all_lambdas = [all_lambdas;lambdas];
     all_consistencies = [all_consistencies;consistencies];
     all_memory_capacities = [all_memory_capacities; memory_capacities];
-   % all_neuron_vals = [all_neuron_vals neuron_vals];
 end
 plot_obj = configure_plot_struct();
 % error_vals = [];
@@ -45,17 +42,13 @@ for k = 1:length(parameters.range)
      lambda_val = mean(all_lambdas(:,k));
      consistency_val = mean(all_consistencies(:,k));
      memory_capacity_val = mean(all_memory_capacities(:,k));
-%     sd = sqrt(var(vals(:,k)));
      plot_obj.to_plot = [plot_obj.to_plot plot_val];
      plot_obj.to_plot_lambdas = [plot_obj.to_plot_lambdas lambda_val];
      plot_obj.to_plot_consistencies = [plot_obj.to_plot_consistencies consistency_val];
      plot_obj.to_plot_memories = [plot_obj.to_plot_memories memory_capacity_val];
-%     error_vals = [error_vals sd];
 end
-% plot_obj.to_plot_neuron_vals = all_neuron_vals;
 final_performances = plot_obj.to_plot; 
 plot_code(parameters, plot_obj);
-% plot_neuron_vals(parameters, plot_obj);
 end
 
 
@@ -109,21 +102,3 @@ for ii = 1:length(parameters.range)
 end
 hold off;
 end
-
-% function [] = plot_code(parameters, plot_obj)
-% figure;
-% subplot(2,1,1);
-% plot(parameters.range, plot_obj.to_plot, 'b');
-% hold on
-% xlabel(parameters.toTest, 'Interpreter', 'latex', 'FontSize', 11);
-% ylabel(strcat('Parameter: $\quad$', parameters.perfType , ' performance $r$'), 'Interpreter', 'latex', 'FontSize', 11);
-% title(strcat(num2str(parameters.networks), ' echo-state networks reconstructing Lorenz z from Lorenz x'));
-% hold off
-% subplot(2,1,2);
-% plot(parameters.range, plot_obj.to_plot_consistencies, 'r');
-% hold on
-% xlabel(parameters.toTest, 'Interpreter', 'latex', 'FontSize', 11);
-% ylabel('Consistency measure $\gamma$', 'Interpreter', 'latex', 'FontSize', 11);
-% title(strcat(num2str(parameters.networks), ' echo-state networks reconstructing Lorenz z from Lorenz x'));
-% hold off
-% end

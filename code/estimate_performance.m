@@ -20,7 +20,6 @@ else
         parameters.sparsity ...
         ); % setting up W, V and b for an echo state network
 end
-% [X, neuron_data] = esn(W, V, b, norm_u_input, x, length(norm_u_input)-1, parameters.spectralRadius, parameters.leak, parameters.function);
 consistency = measure_consistency(norm_u_input, parameters);
 memory_capacity = -1;
 if parameters.perfType == "test"

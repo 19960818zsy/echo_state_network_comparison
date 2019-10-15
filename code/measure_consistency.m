@@ -1,5 +1,4 @@
 function consistency = measure_consistency(u, parameters)
-% input value X: an echo-state network
 parameters.ic = 2*rand(length(parameters.W),1) - 1;
 X_0 = esn_evaluate(u, parameters);
 parameters.ic = 2*rand(length(parameters.W),1) - 1;

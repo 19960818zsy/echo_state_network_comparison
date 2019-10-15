@@ -21,13 +21,6 @@ for j = 2:length(u)
 end
 X = [X;ones(1,length(X(1,:)))]; % add extra row of ones
 X = X(:,ceil(parameters.transientCutoff*length(X)):end);
-% hold on
-% for i = 1:length(X(:,1))
-%     plot(X(i,:))
-% end
-% xlabel("t")
-% ylabel("Values of neurons")
-% hold off
 
 
 

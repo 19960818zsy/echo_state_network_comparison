@@ -11,4 +11,3 @@ rho = 28;
 f = @(t,a) [-sigma*a(1) + sigma*a(2); rho*a(1) - a(2) - a(1)*a(3); -beta*a(3) + a(1)*a(2)];
 [t,a] = ode23(f,linspace(0,n*st, n),[1 1 1]);
 t_series = [t a(:,d)];
-% plot(t, a(:,d))

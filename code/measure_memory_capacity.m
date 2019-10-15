@@ -4,7 +4,7 @@ data_sample = randn(6*len,1);
 u_input = [data_sample(len+1:2*len);data_sample(3*len+1:4*len);data_sample(5*len+1:6*len)];
 tau_range = 1:parameters.sampleLength;
 performances = [];
-% % REMOVE, TESTING ONLY
+% % REMOVE IF USING THIS FUNCTION INDEPENDENTLY OF ESN_ANALYSIS
 % if parameters.kappa == -1
 %     [parameters.W, parameters.V, parameters.b] = esn_setup(...
 %         length(u_input(1)), ...
